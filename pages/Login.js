@@ -6,35 +6,36 @@ import {
   TouchableOpacity,
   View,
   Image,
+  ScrollView,
 } from 'react-native';
-import googleImg from '../assets/images/google.png';
+import {googleImg} from '../assets/images';
 
 const Login = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login to your account!</Text>
-      <Text style={styles.subTitle}>Free register and you can enjoy it</Text>
-      <View style={styles.google}>
-        <Image source={googleImg} />
-        <Text style={styles.googleText}>Login with Google</Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Login to your account!</Text>
+        <Text style={styles.subTitle}>Free register and you can enjoy it</Text>
+        <View style={styles.google}>
+          <Image source={googleImg} />
+          <Text style={styles.googleText}>Login with Google</Text>
+        </View>
+        <View style={styles.inputForm}>
+          <TextInput style={styles.inputBox} placeholder="Full Name" />
+          <TextInput style={styles.inputBox} placeholder="Email Address" />
+          <TextInput
+            style={styles.inputBox}
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Home', {name: 'home'})}
+            style={styles.btn}>
+            <Text style={styles.btnText}>Sign In</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.inputForm}>
-        <TextInput style={styles.inputBox} placeholder="Full Name" />
-        <TextInput style={styles.inputBox} placeholder="Email Address" />
-        <TextInput
-          style={styles.inputBox}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('registration', {name: 'registration'})
-          }
-          style={styles.btn}>
-          <Text style={styles.btnText}>Sign In</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -45,6 +46,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     padding: 20,
+    paddingTop: 110,
   },
   title: {
     fontFamily: 'Roboto-Bold',

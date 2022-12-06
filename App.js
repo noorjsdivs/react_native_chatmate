@@ -22,6 +22,12 @@ const Stack = createNativeStackNavigator();
 
 import Registration from './pages/Registration';
 import Login from './pages/Login';
+import Home from './pages/Home';
+import FriendRequest from './pages/FriendRequest';
+import MyGroups from './pages/MyGroups';
+import GroupRequests from './pages/GroupRequests';
+import Friends from './pages/Friends';
+import Block from './pages/Block';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -30,8 +36,14 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="registration" component={Registration} />
-        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="Registration" component={Registration} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Friend Request" component={FriendRequest} />
+        <Stack.Screen name="My Groups" component={MyGroups} />
+        <Stack.Screen name="Group Requests" component={GroupRequests} />
+        <Stack.Screen name="Friends" component={Friends} />
+        <Stack.Screen name="Blocked" component={Block} />
       </Stack.Navigator>
     </NavigationContainer>
   );

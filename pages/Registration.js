@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -9,24 +10,26 @@ import {
 
 const Registration = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Get started with easily register</Text>
-      <Text style={styles.subTitle}>Free register and you can enjoy it</Text>
-      <View style={styles.inputForm}>
-        <TextInput style={styles.inputBox} placeholder="Full Name" />
-        <TextInput style={styles.inputBox} placeholder="Email Address" />
-        <TextInput
-          style={styles.inputBox}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-        <TouchableOpacity
-          onPress={() => navigation.navigate('login', {name: 'login'})}
-          style={styles.btn}>
-          <Text style={styles.btnText}>Sign up</Text>
-        </TouchableOpacity>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Get started with easily register</Text>
+        <Text style={styles.subTitle}>Free register and you can enjoy it</Text>
+        <View style={styles.inputForm}>
+          <TextInput style={styles.inputBox} placeholder="Full Name" />
+          <TextInput style={styles.inputBox} placeholder="Email Address" />
+          <TextInput
+            style={styles.inputBox}
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Login', {name: 'ogin'})}
+            style={styles.btn}>
+            <Text style={styles.btnText}>Sign up</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -37,6 +40,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     padding: 20,
+    paddingTop: 130,
   },
   title: {
     fontFamily: 'Roboto-Bold',
