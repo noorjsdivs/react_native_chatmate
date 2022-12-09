@@ -7,27 +7,22 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-import Registration from './pages/Registration';
-import Login from './pages/Login';
-import Home from './pages/Home';
-import FriendRequest from './pages/FriendRequest';
-import MyGroups from './pages/MyGroups';
-import GroupRequests from './pages/GroupRequests';
-import Friends from './pages/Friends';
-import Block from './pages/Block';
+import Registration from './screens/Registration';
+import Login from './screens/Login';
+import Home from './screens/Home';
+import FriendRequest from './screens/FriendRequest';
+import MyGroups from './screens/MyGroups';
+import GroupRequests from './screens/GroupRequests';
+import Friends from './screens/Friends';
+import Block from './screens/Block';
+import Profile from './screens/Profile';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -44,6 +39,7 @@ const App = () => {
         <Stack.Screen name="Group Requests" component={GroupRequests} />
         <Stack.Screen name="Friends" component={Friends} />
         <Stack.Screen name="Blocked" component={Block} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

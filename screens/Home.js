@@ -2,7 +2,6 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
   Image,
@@ -43,7 +42,9 @@ const Home = ({navigation}) => {
             style={styles.btn}>
             <Text style={styles.btnText}>My Group</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Profile', {name: 'profile'})}
+            style={styles.btn}>
             <Text style={styles.btnText}>Users</Text>
           </TouchableOpacity>
           <TouchableOpacity

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -9,13 +9,28 @@ import {
 } from 'react-native';
 
 const Registration = ({navigation}) => {
+  let [name, setName] = useState('');
+  let [errName, setErrName] = useState('');
+
+  const handleSignUp = () => {
+    if (name === '') {
+      setErrName('Name is required!');
+    } else {
+      setErrName('');
+    }
+  };
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.title}>Get started with easily register</Text>
         <Text style={styles.subTitle}>Free register and you can enjoy it</Text>
         <View style={styles.inputForm}>
-          <TextInput style={styles.inputBox} placeholder="Full Name" />
+          <TextInput
+            onChange={e => setName(e.target.value)}
+            style={styles.inputBox}
+            placeholder="Full Name"
+          />
+          {errName ? <Text style={styles.err}>{errName}</Text> : ''}
           <TextInput style={styles.inputBox} placeholder="Email Address" />
           <TextInput
             style={styles.inputBox}
@@ -23,7 +38,8 @@ const Registration = ({navigation}) => {
             secureTextEntry={true}
           />
           <TouchableOpacity
-            onPress={() => navigation.navigate('Login', {name: 'ogin'})}
+            onPress={handleSignUp}
+            // onPress={() => navigation.navigate('Login', {name: 'ogin'})}
             style={styles.btn}>
             <Text style={styles.btnText}>Sign up</Text>
           </TouchableOpacity>
@@ -86,6 +102,15 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     color: '#FFFFFF',
+  },
+  err: {
+    backgroundColor: 'red',
+    width: '100%',
+    color: 'white',
+    fontFamily: 'Roboto-SemiBold',
+    fontSize: 15,
+    padding: 3,
+    textAlign: 'center',
   },
 });
 
